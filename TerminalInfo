@@ -1,0 +1,43 @@
+package com.barkley.bean;
+
+public class TerminalInfo {
+
+	private String beltNo;
+	private  boolean wasVisited;
+	/**
+	 * @param beltNo
+	 * @param was
+	 */
+	public TerminalInfo(String beltNo) {
+		super();
+		this.beltNo = beltNo;
+		this.wasVisited = false;
+	}
+	/**
+	 * @return the beltNo
+	 */
+	public String getBeltNo() {
+		return beltNo;
+	}
+	/**
+	 * @param beltNo the beltNo to set
+	 */
+	public void setBeltNo(String beltNo) {
+		this.beltNo = beltNo;
+	}
+	/**
+	 * @return the wasVisited
+	 */
+	public boolean isWasVisited() {
+		return wasVisited;
+	}
+	/**
+	 * @param wasVisited the wasVisited to set
+	 */
+	public void setWasVisited(boolean wasVisited) {
+		this.wasVisited = wasVisited;
+	}
+	
+	
+	
+}
