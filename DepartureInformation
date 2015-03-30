@@ -1,0 +1,57 @@
+package com.barkley.conveyer.input;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.barkley.bean.Departure;
+import com.barkley.bean.FlightInfo;
+
+public class DepartureInformation {
+
+
+	public List<Departure> fillDepartureDetails() {
+		List<Departure> departureInfoList = new ArrayList<Departure>();
+		
+		FlightInfo info1 = new FlightInfo("A1","MIA","08.00");
+		Departure dep1 = new Departure("UA10", info1);
+		departureInfoList.add(dep1);
+		
+		FlightInfo info2 = new FlightInfo("A1","LAX","09.00");
+		Departure dep2 = new Departure("UA11", info2);
+		departureInfoList.add(dep2);
+		
+		FlightInfo info3 = new FlightInfo("A1","JFK","09.45");
+		Departure dep3 = new Departure("UA12", info3);
+		departureInfoList.add(dep3);
+		
+		FlightInfo info4 = new FlightInfo("A2","JFK","08.30");
+		Departure dep4 = new Departure("UA13", info4);
+		departureInfoList.add(dep4);
+		
+		FlightInfo info5 = new FlightInfo("A2","JFK","09.45");
+		Departure dep5 = new Departure("UA14", info5);
+		departureInfoList.add(dep5);
+		
+		FlightInfo info6 = new FlightInfo("A2","JFK","10.00");
+		Departure dep6 = new Departure("UA15", info6);
+		departureInfoList.add(dep6);
+		
+		FlightInfo info7 = new FlightInfo("A3","JFK","09.00");
+		Departure dep7 = new Departure("UA16", info7);
+		departureInfoList.add(dep7);
+		
+		FlightInfo info8 = new FlightInfo("A4","MHT","09.15");
+		Departure dep8 = new Departure("UA17", info8);
+		departureInfoList.add(dep8);
+		
+		FlightInfo info9 = new FlightInfo("A5","LAX","10.15");
+		Departure dep9 = new Departure("UA18", info9);
+		departureInfoList.add(dep9);
+		
+		return departureInfoList;
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+}
