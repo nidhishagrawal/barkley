@@ -1,0 +1,75 @@
+package com.barkley.bean;
+
+import java.util.List;
+
+public class CustomizeOutput {
+
+	private String bagId;
+	private String path;
+	private int travelTime;
+	
+	public CustomizeOutput() {
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param bagId
+	 * @param path
+	 * @param travelTime
+	 */
+	public CustomizeOutput(String bagId, String path, int travelTime) {
+		super();
+		this.bagId = bagId;
+		this.path = path;
+		this.travelTime = travelTime;
+	}
+
+	/**
+	 * @return the bagId
+	 */
+	public String getBagId() {
+		return bagId;
+	}
+	/**
+	 * @param bagId the bagId to set
+	 */
+	public void setBagId(String bagId) {
+		this.bagId = bagId;
+	}
+	/**
+	 * @return the path
+	 */
+	public String getPath() {
+		return path;
+	}
+	/**
+	 * @param path the path to set
+	 */
+	public void setPath(String path) {
+		this.path = path;
+	}
+	/**
+	 * @return the travelTime
+	 */
+	public int getTravelTime() {
+		return travelTime;
+	}
+	/**
+	 * @param travelTime the travelTime to set
+	 */
+	public void setTravelTime(int travelTime) {
+		this.travelTime = travelTime;
+	}
+	
+	/**
+	 * 
+	 * @param path
+	 * @return
+	 */
+	public String convertPath(List<String> path) {
+		String str ="";
+		for(String s: path) {
+			str+=s;
+		}
+		return str;
+	}
+}
