@@ -1,0 +1,84 @@
+package com.barkley.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.barkley.bean.BagInfo;
+import com.barkley.bean.BagTagInfo;
+import com.barkley.bean.CustomizeOutput;
+import com.barkley.bean.Departure;
+import com.barkley.bean.FlightInfo;
+import com.barkley.conveyer.input.BagInformation;
+import com.barkley.conveyer.input.ConveyerSystem;
+import com.barkley.conveyer.input.DepartureInformation;
+
+public class DisplayOutput {
+
+	/*
+	 * 
+	 * 
+	 */
+	public static void main(String[] args) throws InterruptedException {
+				ConveyerSystem executeSystem = new ConveyerSystem();
+				executeSystem.FillGraphInputs();
+				BagInformation bagInfo = new BagInformation();
+				List<BagInfo> bagInfoList = bagInfo.fillBagDetails();
+				DepartureInformation departInfo = new DepartureInformation();
+				List<Departure> departureInfoList = departInfo.fillDepartureDetails();
+				List<CustomizeOutput> result =createCustomizeoutput(executeSystem,departureInfoList,bagInfoList);
+			    for(CustomizeOutput out :result) {
+			    	System.out.print(out.getBagId()+" "+out.getPath() + " "+out.getTravelTime());
+			    	System.out.println();
+			    }
+	}
+
+	/*
+	 * 
+	 * 
+	 */
+	private static List<CustomizeOutput> createCustomizeoutput(
+			ConveyerSystem executeSystem, List<Departure> departureInfoList,
+			List<BagInfo> bagInfoList) throws InterruptedException {
+		List<CustomizeOutput> customizeOutputList = new ArrayList<CustomizeOutput>();
+		for(BagInfo info : bagInfoList){
+			CustomizeOutput output = new CustomizeOutput();
+			BagTagInfo tagInfo = info.getBagInformation();
+			output.setBagId(info.getBagId());
+			String srcVertex = tagInfo.getDepositBeltNo();
+			Departure dept =null;
+			String destVertex =null;
+			dept = getDepartureDetails(departureInfoList,tagInfo.getFlightNo());
+			if(dept!=null){
+				FlightInfo flightInfo = dept.getFlightInfo();
+				destVertex = flightInfo.getBeltNo();
+			}
+			String path = executeSystem.shortedPath(srcVertex, destVertex);
+			output.setPath(path);
+			int time = executeSystem.shortestDistance(srcVertex, destVertex);
+			//System.out.println(time);
+			output.setTravelTime(time);
+			customizeOutputList.add(output);
+		//	Thread.sleep(3000);
+		}
+		return customizeOutputList;
+	}
+
+	/*
+	 * 
+	 * 
+	 */
+	private static Departure getDepartureDetails(
+			List<Departure> departureInfoList, String flightNo) {
+		Departure departs =null;
+		for(Departure depart :departureInfoList) {
+			//System.out.println(depart.getFlightNo());
+			if(depart.getFlightNo().equals(flightNo)){
+				departs = depart;
+			}
+		}
+		return departs ;
+	}
+
+	
+
+}
