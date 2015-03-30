@@ -1,0 +1,42 @@
+package com.barkley.bean;
+
+
+public class BagInfo {
+
+	private String bagId;
+	private BagTagInfo bagInformation;
+	/**
+	 * @param string
+	 * @param bagInformation
+	 */
+	public BagInfo(String string, BagTagInfo bagInformation) {
+		super();
+		this.bagId = string;
+		this.bagInformation = bagInformation;
+	}
+	/**
+	 * @return the bagId
+	 */
+	public String getBagId() {
+		return bagId;
+	}
+	/**
+	 * @param bagId the bagId to set
+	 */
+	public void setBagId(String bagId) {
+		this.bagId = bagId;
+	}
+	/**
+	 * @return the bagInformation
+	 */
+	public BagTagInfo getBagInformation() {
+		return bagInformation;
+	}
+	/**
+	 * @param bagInformation the bagInformation to set
+	 */
+	public void setBagInformation(BagTagInfo bagInformation) {
+		this.bagInformation = bagInformation;
+	}
+	
+}
