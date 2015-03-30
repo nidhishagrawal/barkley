@@ -1,0 +1,35 @@
+package com.barkley.conveyer.input;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.barkley.bean.BagInfo;
+import com.barkley.bean.BagTagInfo;
+
+public class BagInformation {
+
+	/*
+	 * @info "Function used to fill the bag details"
+	 * @return List<BagInfo>
+	 */
+	public List<BagInfo> fillBagDetails() {
+		List<BagInfo> bagInfoList = new ArrayList<BagInfo>();
+		
+		BagTagInfo bag1 = new BagTagInfo("Concourse_A_Ticketing","UA12");
+		BagInfo bagInfo1 = new BagInfo("0001", bag1);
+		bagInfoList.add(bagInfo1);
+		/*
+		BagTagInfo bag2 = new BagTagInfo("A5","UA17");
+		BagInfo bagInfo2 = new BagInfo("0002", bag2);
+		bagInfoList.add(bagInfo2);
+		
+		BagTagInfo bag2 = new BagTagInfo("A8","UA18");
+		BagInfo bagInfo2 = new BagInfo("0003", bag2);
+		bagInfoList.add(bagInfo2);
+		*/
+		 
+		return bagInfoList;
+	}
+	
+
+}
