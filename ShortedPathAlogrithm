@@ -1,0 +1,47 @@
+package com.barkley.converyer;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+
+public class ShortedPathAlogrithm {
+
+	public void computePaths(Vertex source) {
+		source.minDistance = 0;
+		PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>();
+		vertexQueue.add(source);
+
+		while (!vertexQueue.isEmpty()) {
+			Vertex u = vertexQueue.poll();
+
+			for (Edge e : u.adjacencies) {
+				Vertex v = e.target;
+				int weight = e.weight;
+				int distanceThroughU = u.minDistance + weight;
+				if (distanceThroughU < v.minDistance) {
+					vertexQueue.remove(v);
+					v.minDistance = distanceThroughU;
+					v.previous = u;
+					vertexQueue.add(v);
+				}
+			}
+		}
+	}
+
+	public String getShortestPathTo(Vertex target, Set<Vertex> path) {
+		String str = "";
+		for (Vertex vertex = target; vertex != null; vertex = vertex.previous) {
+			path.add(vertex);
+		}
+		List<Vertex> list = new ArrayList<Vertex>(path);
+		//Collections.reverse(list);
+		for (Vertex pa : list) {
+			str += pa + " ";
+		}
+		System.out.println();
+		return str;
+	}
+}
