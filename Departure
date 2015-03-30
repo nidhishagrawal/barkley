@@ -1,0 +1,44 @@
+package com.barkley.bean;
+
+
+public class Departure {
+
+	private String flightNo;
+	private FlightInfo flightInfo;
+	/**
+	 * @param flightNo
+	 * @param flightInfo
+	 */
+	public Departure(String flightNo, FlightInfo flightInfo) {
+		super();
+		this.flightNo = flightNo;
+		this.flightInfo = flightInfo;
+	}
+	/**
+	 * @return the flightNo
+	 */
+	public String getFlightNo() {
+		return flightNo;
+	}
+	/**
+	 * @param flightNo the flightNo to set
+	 */
+	public void setFlightNo(String flightNo) {
+		this.flightNo = flightNo;
+	}
+	/**
+	 * @return the flightInfo
+	 */
+	public FlightInfo getFlightInfo() {
+		return flightInfo;
+	}
+	/**
+	 * @param flightInfo the flightInfo to set
+	 */
+	public void setFlightInfo(FlightInfo flightInfo) {
+		this.flightInfo = flightInfo;
+	}
+	
+	
+}
+
