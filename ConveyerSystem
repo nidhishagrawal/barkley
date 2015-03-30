@@ -1,0 +1,105 @@
+package com.barkley.conveyer.input;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import com.barkley.converyer.Edge;
+import com.barkley.converyer.ShortedPathAlogrithm;
+import com.barkley.converyer.Vertex;
+
+public class ConveyerSystem {
+
+	static List<Vertex> vertices = new ArrayList<Vertex>();
+
+	public void FillGraphInputs() {
+		// TODO Auto-generated method stub
+		Vertex v0 = new Vertex("Concourse_A_Ticketing");
+		Vertex v1 = new Vertex("BaggageClaim");
+		Vertex v2 = new Vertex("A1");
+		Vertex v3 = new Vertex("A2");
+		Vertex v4 = new Vertex("A3");
+		Vertex v5 = new Vertex("A4");
+		Vertex v6 = new Vertex("A5");
+		Vertex v7 = new Vertex("A6");
+		Vertex v8 = new Vertex("A7");
+		Vertex v9 = new Vertex("A8");
+		Vertex v10 = new Vertex("A9");
+		Vertex v11 = new Vertex("A10");
+		v0.adjacencies = new Edge[] { new Edge(v6, 5) };
+		v1.adjacencies = new Edge[] { new Edge(v6, 5) };
+		v2.adjacencies = new Edge[] { new Edge(v6, 6), new Edge(v3, 1) };
+		v3.adjacencies = new Edge[] { new Edge(v2, 1), new Edge(v4, 1) };
+		v4.adjacencies = new Edge[] { new Edge(v3, 1), new Edge(v5, 1) };
+		v5.adjacencies = new Edge[] { new Edge(v4, 1) };
+		v6.adjacencies = new Edge[] { new Edge(v0, 5), new Edge(v1, 5),
+				new Edge(v11, 4), new Edge(v2, 6) };
+		v7.adjacencies = new Edge[] { new Edge(v8, 1) };
+		v8.adjacencies = new Edge[] { new Edge(v9, 1), new Edge(v7, 1) };
+		v9.adjacencies = new Edge[] { new Edge(v10, 1), new Edge(v8, 1) };
+		v10.adjacencies = new Edge[] { new Edge(v11, 1), new Edge(v9, 1) };
+		v11.adjacencies = new Edge[] { new Edge(v11, 4), new Edge(v10, 1),
+				new Edge(v6, 4) };
+		vertices.add(v0);
+		vertices.add(v1);
+		vertices.add(v2);
+		vertices.add(v3);
+		vertices.add(v4);
+		vertices.add(v5);
+		vertices.add(v6);
+		vertices.add(v7);
+		vertices.add(v8);
+		vertices.add(v9);
+		vertices.add(v10);
+		vertices.add(v9);
+	}
+
+	/*
+	 * @info function used for finding shorted path
+	 * @vert Source Vertex
+	 * @destination Destination vertex
+	 */
+	public String shortedPath(String vert, String destination) {
+		ShortedPathAlogrithm sd = new ShortedPathAlogrithm();
+		sd.computePaths(findVert(vert));
+		String path = null;
+		Vertex destVer = findVert(destination);
+		path = sd.getShortestPathTo(destVer, new HashSet<Vertex>());
+
+		return path;
+	}
+
+	/*
+	 * @info function used for finding shorted distance
+	 * @vert Source Vertex
+	 * @destination Destination vertex
+	 */
+	public int shortestDistance(String vert, String destination) {
+		ShortedPathAlogrithm sd = new ShortedPathAlogrithm();
+		sd.computePaths(findVert(vert));
+		String path = null;
+		int minDist = 0;
+		for (Vertex v : vertices) {
+			if (v.name == destination) {
+				minDist = v.minDistance;
+			}
+		}
+		return minDist;
+	}
+
+	/*
+	 * @info function used for finding shorted path
+	 * @vert Source Vertex
+	 * @destination Destination vertex
+	 */
+	private Vertex findVert(String vert) {
+		// TODO Auto-generated method stub
+		for (Vertex v : vertices) {
+			if (v.name == vert) {
+				return v;
+			}
+
+		}
+		return null;
+	}
+}
