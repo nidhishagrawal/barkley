@@ -1,0 +1,57 @@
+package com.barkley.bean;
+
+public class FlightInfo {
+
+	private String beltNo;
+	private String destination;
+	private String departTime;
+	/**
+	 * @param beltNo
+	 * @param destination
+	 * @param departTime
+	 */
+	public FlightInfo(String beltNo, String destination, String departTime) {
+		super();
+		this.beltNo = beltNo;
+		this.destination = destination;
+		this.departTime = departTime;
+	}
+	/**
+	 * @return the beltNo
+	 */
+	public String getBeltNo() {
+		return beltNo;
+	}
+	/**
+	 * @param beltNo the beltNo to set
+	 */
+	public void setBeltNo(String beltNo) {
+		this.beltNo = beltNo;
+	}
+	/**
+	 * @return the destination
+	 */
+	public String getDestination() {
+		return destination;
+	}
+	/**
+	 * @param destination the destination to set
+	 */
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+	/**
+	 * @return the departTime
+	 */
+	public String getDepartTime() {
+		return departTime;
+	}
+	/**
+	 * @param departTime the departTime to set
+	 */
+	public void setDepartTime(String departTime) {
+		this.departTime = departTime;
+	}
+	
+	
+}
