@@ -1,0 +1,39 @@
+package com.barkley.bean;
+
+public class BagTagInfo {
+
+	private String depositBeltNo;
+	private String flightNo;
+	
+	
+	public BagTagInfo(String depositBeltNo, String flightNo) {
+		super();
+		this.depositBeltNo = depositBeltNo;
+		this.flightNo = flightNo;
+	}
+	/**
+	 * @return the depositBeltNo
+	 */
+	public String getDepositBeltNo() {
+		return depositBeltNo;
+	}
+	/**
+	 * @param depositBeltNo the depositBeltNo to set
+	 */
+	public void setDepositBeltNo(String depositBeltNo) {
+		this.depositBeltNo = depositBeltNo;
+	}
+	/**
+	 * @return the flightNo
+	 */
+	public String getFlightNo() {
+		return flightNo;
+	}
+	/**
+	 * @param flightNo the flightNo to set
+	 */
+	public void setFlightNo(String flightNo) {
+		this.flightNo = flightNo;
+	}
+	
+}
